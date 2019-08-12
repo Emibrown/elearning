@@ -1,0 +1,62 @@
+<% include header %>
+
+
+<section class="content container" ng-controller="addcourseCtrl">
+          <div class="box box-solid">
+              <div class="box-header with-border">
+                <h3 class="box-title">Create New Course</h3>
+              </div>
+
+              <div class="box-body">
+          <form role="form" name="courseForm" ng-submit="create(courseForm.$valid)" required novalidate>
+              <div class="box-body">
+
+                <div class="form-group">
+                  <label for="exampleInputEmail1">Course Title</label>
+                  <input type="text" name="courseTitle" ng-model="course.title" class="form-control" id="exampleInputEmail1" placeholder="Course Title" required>
+                  <i ng-cloak class="ng-cloak formError" ng-show="courseForm.courseTitle.$invalid && !courseForm.courseTitle.$pristine" >Course title is required.</i>
+                </div>
+
+                <div class="form-group">
+                  <label for="exampleInputEmail1">Course Code</label>
+                  <input type="text" name="courseCode" ng-model="course.code" class="form-control" id="exampleInputEmail1" placeholder="Course Code" required>
+                  <i ng-cloak class="ng-cloak formError" ng-show="courseForm.courseCode.$invalid && !courseForm.courseCode.$pristine" >Course Code is required.</i>
+                </div>
+
+                <div class="form-group">
+                  <label for="exampleInputPassword1">Department</label>
+                  <input type="text" name="department" ng-model="course.department" class="form-control" id="exampleInputPassword1" placeholder="Department" required>
+                  <i ng-cloak class="ng-cloak formError" ng-show="courseForm.department.$invalid && !courseForm.department.$pristine" >Department is required.</i>
+                </div>
+
+                <div class="form-group">
+                    <label for="name-login">Course Discription</label>
+                    <wysiwyg-edit  ng-click="clear()" content="course.dis" config="editorConfig"></wysiwyg-edit>
+                </div>
+   
+                 <div class="form-group">
+                        <label for="name-login">Cover photo</label>
+                        <input type="file" ngf-select ng-model="course.file" name="file"  
+                             accept="image/*" ngf-max-size="2MB"
+                             ngf-model-invalid="errorFile" ngf-resize="{width: 240, height: 135, quality: 0.5, centerCrop: true, restoreExif: false}">
+                      </div>
+                      <p class="help-block">Max size: 2MB.</p>
+                       <i ng-cloak class="ng-cloak formError" ng-show="courseForm.file.$error.maxSize">File too large 
+                       {{errorFile.size / 1000000|number:1}}MB: max 2MB</i>
+                       <img ng-show="courseForm.file.$valid" ngf-thumbnail="course.file" class="thumb"> 
+                       <a href="" ng-cloak class="ng-cloak btn btn-primary" ng-click="course.file = null" ng-show="course.file">Remove</a>
+              </div>
+                     
+
+              <!-- /.box-body -->
+
+              <div class="box-footer">
+                <button type="submit" ng-cloak class="ng-cloak btn btn-primary">{{btn}}</button>
+              </div>
+             
+            </form>
+              </div>
+          </div>
+          <!-- /.box -->
+</section>
+<% include footer %>

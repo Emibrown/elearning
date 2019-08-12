@@ -1,0 +1,139 @@
+body{
+	 
+}
+.cos-cover{
+  height: 70px;
+  width: 90px;
+}
+.my-animation.ng-enter {
+  animation: slideInUp 1s;
+}
+.userImage{
+	width: 20px;
+}
+.dis{
+	padding: 20px;
+}
+.dis ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.dis ul li {
+  padding-left: 2em; 
+  text-indent: -.9em;
+  font-size: 15px;
+}
+
+.dis ul li::before {
+  content: "• ";
+  color: #1565c0; /* or whatever color you prefer */
+  font-size: 25px;
+
+}
+.chold{
+	margin: 5px; 
+	border-style: solid; 
+	border-color: #eeeeee; 
+	border-width: 2px; 
+	padding:10px;
+}
+.my-animation.ng-leave {
+  animation: slideOutDown 1s;
+}
+.jumbotron-billboard .img {
+  margin-bottom: 0px;
+  opacity: 0.6;
+  color: #fff;
+  background: #000 url("/bk.jpg") center center;
+  width: 100%;
+  height: 100%;
+  background-size: cover;
+  overflow: hidden;
+  position:absolute;
+  top:0;left:0;
+  z-index:1;
+}
+.jumbotron {
+  padding-top: 30px;
+  padding-bottom: 30px;
+  margin-bottom: 30px;
+  color: white;
+  background-color: black;
+}
+.jumbotron {position:relative;padding:50px;}
+.jumbotron .container {z-index:2;
+ position:relative;
+  z-index:2;
+}
+.jumbotron h1,
+.jumbotron .h1 {
+  color: inherit;
+}
+.jumbotron p {
+  margin-bottom: 15px;
+  font-size: 18px;
+  font-weight: 200;
+}
+.jumbotron > hr {
+  border-top-color: #d5d5d5;
+}
+.container .jumbotron,
+.container-fluid .jumbotron {
+  padding-right: 15px;
+  padding-left: 15px;
+  border-radius: 6px;
+}
+.jumbotron .container {
+  max-width: 100%;
+}
+.c-cover{
+	float: left;
+	margin-right: 3%;
+}
+.c-body{
+	
+}
+.c{
+	margin: 3%;
+	padding-bottom: 15px;
+	border-bottom: solid;
+	border-bottom-width: 1px;
+	border-color: #e0e0e0;
+}
+.c a{
+	text-decoration: none;
+}
+.course-banner{
+	background-color: #212121;
+	color: #fafafa;
+	padding-top: 1%;
+	padding-bottom: 1%;
+}
+.course-img{
+	width: 60%;
+	margin-bottom: 20px;
+}
+.tutor-img{
+	margin-right: 2%;
+}
+@media screen and (min-width: 768px) {
+  .cos-cover{
+	  width: 100%;
+	  height: 120px;
+	}
+	.c-cover{
+	float: none;
+	margin-right: 0px;
+	}
+	.c-body{
+		padding: 10px;
+	}
+	.c{
+		background-color: white;
+		padding: 0px;
+		border:none;
+		box-shadow: 1px 2px 5px #e0e0e0;
+	}
+}

@@ -1,0 +1,80 @@
+<% include header %>
+
+
+<section class="content container" ng-controller="editassignmentCtrl">
+          <div class="box box-solid">
+            <div class="box-body">
+              <div class="row">
+
+                <div class="col-md-12" >
+                  <div class="box box-solid">
+
+                    <div class="box-header with-border">
+                      <h3 class="box-title">Edit Assignment</h3>
+                      <% include menu %>
+                    </div>
+
+                     <div class="box-body">
+            <form role="form" name="assignmentForm" ng-submit="create('<%= assignment._id %>','<%= assignment.course %>',assignmentForm.$valid)" ng-init="assignment.title = '<%= assignment.title %>'; init('<%= moment(assignment.submissionDate).format('YYYY-MM-DD') %>'); assignment.content = '<%= assignment.content %>'" required novalidate>
+
+
+              <div class="box-body">
+                <div class="form-group">
+                  <label for="exampleInputEmail1">Title</label>
+                  <input type="text" name="title" ng-model="assignment.title" class="form-control" id="exampleInputEmail1" placeholder="Material Title" required>
+                  <i ng-cloak class="ng-cloak formError" ng-show="assignmentForm.title.$invalid && !assignmentForm.title.$pristine" >Assignment title is required.</i>
+                </div>
+
+                <div class="form-group">
+                  <label for="exampleInputEmail1">Submission Date</label>
+                  <input type="date"  class="form-control"  id="exampleInput" name="date" ng-model="assignment.date" placeholder="yyyy-MM-dd" required />
+                  <i ng-cloak class="ng-cloak formError" ng-show="assignmentForm.date.$error.required  && !assignmentForm.date.$pristine">Required!</i>
+                  <i ng-cloak class="ng-cloak formError" ng-show="assignmentForm.date.$error.date">Not a valid date!</i>
+                </div>
+               
+              
+                <div class="form-group">
+                    <label for="name-login">Content</label>
+                    <wysiwyg-edit  ng-click="clear()" content="assignment.content" config="editorConfig"></wysiwyg-edit>
+                </div>
+
+               
+                <div class="form-group">
+                        <label for="name-login">File</label>
+                        <input type="file" ngf-select ng-model="assignment.file" name="file" ngf-pattern="'.pdf,.docx,.doc,image/*'" accept="'.pdf,.docx,.doc,image/*'" ngf-accept="'.pdf,.docx,.doc,image/*'" ngf-max-size="5MB" ngf-model-invalid="errorFile">
+                      </div>
+                      <p class="help-block">Max size: 2MB.</p>
+                       <i ng-cloak class="ng-cloak formError" ng-show="assignmentForm.file.$error.pattern">File format not allowed</i>
+                      <i ng-cloak class="ng-cloak formError" ng-show="assignmentForm.file.$error.maxSize">File too large 
+                       {{errorFile.size / 1000000|number:1}}MB: max 5MB</i>
+                       <img ng-show="assignmentForm.file.$valid" ngf-thumbnail="assignment.file" class="thumb"> 
+                       <a href="" ng-cloak class="ng-cloak btn btn-primary" ng-click="assignment.file = null" ng-show="assignment.file">Remove</a>
+              </div>
+
+              </div>
+              <!-- /.box-body -->
+
+              <div class="box-footer">
+                <button type="submit" ng-cloak class="ng-cloak btn btn-primary">{{btn}}</button>
+              </div>
+             
+            </form>
+              </div>
+                   
+
+
+                     
+                    
+                  </div>
+                </div>
+
+               
+              </div>
+
+
+            </div>
+            <!-- /.box-body -->
+          </div>
+          <!-- /.box -->
+</section>
+<% include footer %>

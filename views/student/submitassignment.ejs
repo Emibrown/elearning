@@ -1,0 +1,69 @@
+<% include header %>
+
+
+<section class="content container" ng-controller="submitassignmentCtrl">
+          <div class="box box-solid">
+            <div class="box-body">
+              <div class="row">
+
+                <div class="col-md-12" >
+                  <div class="box box-solid">
+
+                    <div class="box-header with-border">
+                      <h3 class="box-title">Submit Assignment: 
+                        <small><%= assignment.title %></small>
+                      </h3>
+                      <% include menu %>
+                    </div>
+
+                     <div class="box-body">
+            <form role="form" name="assignmentForm" ng-submit="submit('<%= assignment._id %>','<%= course._id %>')" required novalidate>
+
+
+              <div class="box-body">
+               
+                <div class="form-group">
+                    <label for="name-login">Content</label>
+                    <wysiwyg-edit  ng-click="clear()" content="assignment.content" config="editorConfig"></wysiwyg-edit>
+                </div>
+
+               
+                <div class="form-group">
+                        <label for="name-login">File <small>Optional</small></label>
+                        <input type="file" ngf-select ng-model="assignment.file" name="file" ngf-pattern="'.pdf,.docx,.doc,image/*'" accept="'.pdf,.docx,.doc,image/*'" ngf-accept="'.pdf,.docx,.doc,image/*'" ngf-max-size="5MB" ngf-model-invalid="errorFile">
+                      </div>
+                      <p class="help-block">Max size: 2MB.</p>
+                       <i ng-cloak class="ng-cloak formError" ng-show="assignmentForm.file.$error.pattern">File format not allowed</i>
+                      <i ng-cloak class="ng-cloak formError" ng-show="assignmentForm.file.$error.maxSize">File too large 
+                       {{errorFile.size / 1000000|number:1}}MB: max 5MB</i>
+                       <img ng-show="assignmentForm.file.$valid" ngf-thumbnail="assignment.file" class="thumb"> 
+                       <a href="" ng-cloak class="ng-cloak btn btn-primary" ng-click="assignment.file = null" ng-show="assignment.file">Remove</a>
+              </div>
+
+              </div>
+              <!-- /.box-body -->
+
+              <div class="box-footer">
+                <button type="submit" ng-cloak class="ng-cloak btn btn-primary">{{btn}}</button>
+              </div>
+             
+            </form>
+              </div>
+                   
+
+
+                     
+                    
+                  </div>
+                </div>
+
+               
+              </div>
+
+
+            </div>
+            <!-- /.box-body -->
+          </div>
+          <!-- /.box -->
+</section>
+<% include footer %>

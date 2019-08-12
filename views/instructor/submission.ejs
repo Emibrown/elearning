@@ -1,0 +1,78 @@
+<% include header %>
+
+
+<section class="content container">
+          <div class="box box-solid">
+            <div class="box-body">
+              <div class="row">
+
+                <div class="col-md-12" >
+                  <div class="box box-solid">
+
+                      <div class="box-header with-border">
+                      <h3 class="box-title">Assignment Submission: 
+                        <small><%= assignment.title  %></small>
+                      </h3>
+                      <% include menu %>
+                    </div>
+
+
+                 
+                  <div class="row">
+
+                    <div class="col-md-9" >
+                         <div class="box-body">
+                      <div class="box-group" id="accordion">
+                        <!-- we are adding the .panel class so bootstrap.js collapse plugin detects it -->
+<%  for (var i = 0; i < assignment.submission.length; i++) { %>
+
+                        <div class="panel box box-primary">
+                          <div class="box-header with-border">
+                            <h4 class="box-title">
+                              <a data-toggle="collapse" data-parent="#accordion" href="#<%= i %>">
+                                <%= assignment.submission[i].user.fullname %> (<%= assignment.submission[i].user.username %>)
+                              </a>
+                            </h4>
+                          </div>
+                          <div id="<%= i %>" class="panel-collapse collapse ">
+                            <div class="box-body">
+
+                              <%= assignment.submission[i].content %> 
+                              <hr>
+
+                              <h3>Downloads</h3>
+                              <a href="/upload/<%= assignment.submission[i].file %>" download="/upload/<%= assignment.submission[i].file %>"><%= assignment.submission[i].file %></a>
+
+                             
+                            </div>
+                              
+                          </div>
+                        </div>
+<% } %>
+                       
+                      </div>
+                    </div>
+            <!-- /.box-body -->
+                    </div>
+
+                  
+
+                  </div>
+                   
+
+
+                     
+                    
+                  </div>
+                </div>
+
+               
+              </div>
+
+
+            </div>
+            <!-- /.box-body -->
+          </div>
+          <!-- /.box -->
+</section>
+<% include footer %>

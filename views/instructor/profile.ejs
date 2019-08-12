@@ -1,0 +1,59 @@
+<% include header %>
+<section class="content container" ng-controller="profileCtrl">
+          <div class="box box-solid">
+              <div class="box-header with-border">
+                <h3 class="box-title">Update Profile</h3>
+              </div>
+
+              <div class="box-body">
+            <form role="form" name="profileForm" ng-submit="update(profileForm.$valid)" required novalidate ng-init="profile.firstname = '<%= tutor.firstname %>'; profile.lastname = '<%= tutor.lastname %>'; profile.title = '<%= tutor.title %>'; profile.bio = '<%= tutor.bio %>'; ">
+                  <div class="box-body">
+                    <div class="form-group">
+                      <label for="exampleInputEmail1">First Name</label>
+                      <input type="text" name="firstname" ng-model="profile.firstname" class="form-control" id="exampleInputEmail1" placeholder="First Name" required>
+                      <i ng-cloak class="ng-cloak formError" ng-show="profileForm.firstname.$invalid && !profileForm.firstname.$pristine" >Your first name is required.</i>
+                    </div>
+
+                    <div class="form-group">
+                      <label for="exampleInputEmail1">Last Name</label>
+                      <input type="text" name="lastname" ng-model="profile.lastname" class="form-control" id="exampleInputEmail1" placeholder="Last Name" required>
+                      <i ng-cloak class="ng-cloak formError" ng-show="profileForm.lastname.$invalid && !profileForm.lastname.$pristine" >Your last name is required.</i>
+                    </div>
+                    <div class="form-group">
+                      <label for="exampleInputPassword1">Title</label>
+                      <input type="text" name="title" ng-model="profile.title" class="form-control" id="exampleInputPassword1" placeholder="Title" required>
+                      <i ng-cloak class="ng-cloak formError" ng-show="profileForm.title.$invalid && !profileForm.title.$pristine" >Your title is required.</i>
+                    </div>
+                    <div class="form-group">
+                      <label>Biography</label>
+                      <textarea class="form-control" ng-model="profile.bio" rows="6" placeholder="Biography here...."></textarea>
+                    </div>
+
+
+                     <!-- Photo -->
+                      <div class="form-group">
+                        <label for="name-login">Avatar</label>
+                        <input type="file" ngf-select ng-model="profile.file" name="file"  
+                             accept="image/*" ngf-max-size="2MB"
+                             ngf-model-invalid="errorFile" ngf-resize="{width: 200, height: 200, quality: 0.5, centerCrop: true, restoreExif: false}">
+                      </div>
+                      <p class="help-block">Max size: 2MB.</p>
+                       <i ng-cloak class="ng-cloak formError" ng-show="profileForm.file.$error.maxSize">File too large 
+                       {{errorFile.size / 1000000|number:1}}MB: max 2MB</i>
+                       <img ng-show="profileForm.file.$valid" ngf-thumbnail="profile.file" class="thumb"> 
+                       <a href="" ng-cloak class="ng-cloak btn btn-primary" ng-click="profile.file = null" ng-show="profile.file">Remove</a>
+
+
+                  </div>
+                  <!-- /.box-body -->
+
+                  <div class="box-footer">
+                    <button type="submit" ng-cloak  class=" ng-cloak btn btn-primary">{{btn}}</button>
+                  </div>
+                 
+            </form>
+              </div>
+          </div>
+          <!-- /.box -->
+</section>
+<% include footer %>

@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html ng-app="eApp">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>E-Learning | Log in</title>
+   <!-- Tell the browser to be responsive to screen width -->
+  <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+  <!-- Bootstrap 3.3.7 -->
+  <link rel="stylesheet" href="/bower_components/bootstrap/dist/css/bootstrap.min.css">
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="/bower_components/font-awesome/css/font-awesome.min.css">
+  <!-- Ionicons -->
+  <link rel="stylesheet" href="/bower_components/Ionicons/css/ionicons.min.css">
+  <!-- Theme style -->
+  <link rel="stylesheet" href="/dist/css/AdminLTE.min.css">
+  <!-- iCheck -->
+  <link rel="stylesheet" href="/plugins/iCheck/square/blue.css">
+
+  <link rel="stylesheet" href="/animate.css">
+
+  <link rel="stylesheet" href="/custom.css">
+
+
+  <link rel="stylesheet" href="/lib/dist/ngToast-animations.css">
+  <link rel="stylesheet" href="/lib/dist/ngToast.css">
+
+   <link href="/lib/angular-csp.css" rel="stylesheet">
+   
+   <style type="text/css">
+    [ng\:cloak], [ng-cloak], [data-ng-cloak], [x-ng-cloak], .ng-cloak, .x-ng-cloak {
+      display: none !important;
+    }
+    .formError{
+      color: red;
+    }
+  
+  </style>
+
+  <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+  <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+  <!--[if lt IE 9]>
+  <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+  <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+  <![endif]-->
+</head>
+<body ng-cloak class="hold-transition ng-cloak login-page" ng-controller="tutorloginCtrl" >
+<toast></toast>
+<div class="login-box">
+  <div class="login-logo">
+    <a href="/student">SICS</a>
+  </div>
+  <!-- /.login-logo -->
+  <div class="nav-tabs-custom">
+    <ul class="nav nav-tabs">
+      <li><a href="/student/login">Student</a></li>
+      <li class="active"><a href="">Instructor</a></li>
+    </ul>
+    <div class="tab-content">
+        <div class="active tab-pane" id="instructor">
+          <div class="login-box-body">
+              <p class="login-box-msg">Instructor Sign In</p>
+
+              <form ng-submit="onSubmit()">
+                <div class="form-group has-feedback">
+                  <input type="text" class="form-control" ng-model="credentials.email" placeholder="Email">
+                  <span class="glyphicon glyphicon-envelope form-control-feedback"></span>
+                </div>
+                <div class="form-group has-feedback">
+                  <input type="password" class="form-control" ng-model="credentials.password" placeholder="Password">
+                  <span class="glyphicon glyphicon-lock form-control-feedback"></span>
+                </div>
+                <div class="form-group has-feedback">
+                    <button type="submit" class="btn btn-primary btn-block btn-flat">{{btn}}</button>
+                </div>
+              </form>
+
+              <div class="social-auth-links text-center">
+                <p>- OR -</p>
+              </div>
+              <!-- /.social-auth-links -->
+
+              <a href="/instructor/recovery">I forgot my password</a><br>
+              <a href="/instructor/signup" class="text-center">Don't have an account</a>
+
+            </div>
+            <!-- /.login-box-body -->
+        </div>
+    </div>
+  </div>
+</div>
+<!-- /.login-box -->
+
+<!-- angular  -->
+    <script src="/lib/angular.min.js"></script>
+    <script src="/lib/app.js"></script>
+    <script src="/lib/angular-route.min.js"></script>
+    <script src="/lib/loader.js"></script>
+    <script src="/lib/dist/angular-animate.min.js"></script>
+    <script src="/lib/dist/angular-sanitize.min.js"></script>
+    <script src="/lib/dist/ng-file-upload.min.js"></script>
+    <script src="/lib/dist/build/wysiwyg.min.js"></script>
+  
+    <script src="/lib/dist/SweetAlert.min.js"></script>
+    <script src="/lib/dist/sweet-alert.min.js"></script>
+    <script src="/lib/dist/ngToast.min.js"></script>
+    <script src="/lib/instructor/login.controller.js"></script>
+<!-- jQuery 3 -->
+<script src="/bower_components/jquery/dist/jquery.min.js"></script>
+<!-- Bootstrap 3.3.7 -->
+<script src="/bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+</body>
+</html>

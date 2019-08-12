@@ -1,0 +1,54 @@
+<% include header %>
+
+
+<section class="content container">
+          <div class="box box-solid">
+            <div class="box-body">
+              <div class="row">
+                <div class="col-md-9" >
+                  <div class="box box-solid">
+
+                    <div class="box-header with-border">
+                      <h3 class="box-title">My Courses</h3>
+                    </div>
+
+<%for (var course in courses){%>
+                      <div class="box-body">
+                       <div class="row chold">
+                          <div class="col-sm-3">
+                             <img src="/upload/<%= courses[course].cover %>" class="img-thumbnail">
+                          </div>
+                          <div class="col-sm-9">
+                             <h2 class="text-primary">
+                                <%= courses[course].title %>
+                             </h2>
+                             <a href="/instructor/courseview/<%= courses[course]._id %>/material" class="btn btn-xs btn-primary btn-flat">View</a>
+                             <a href="/instructor/editcourse/<%= courses[course]._id %>" class="btn btn-xs btn-primary btn-flat">Edit</a>
+                              <a href="/instructor/removecourse/<%= courses[course]._id %>" class="btn btn-xs btn-primary btn-flat">Remove</a>
+                          </div>
+                        </div>
+                    </div>
+<%}%>
+                    
+                  </div>
+                </div>
+
+                <div class="col-md-3">
+                  <div class=" " style="margin: 20px; border-style: solid; border-color: #e0e0e0; border-width: 2px; padding: 20px;">
+                          <p> 
+                            You can create new courses here
+                          </p>
+                          <div class="form-group has-feedback" style="margin: 0px;">
+                              <a href="/instructor/addcourse" class="btn btn-primary btn-block btn-flat">Add Course</a>
+                          </div>
+                    </div>
+                </div>
+              </div>
+
+
+            </div>
+            <!-- /.box-body -->
+          </div>
+          <!-- /.box -->
+</section>
+<% include footer %>

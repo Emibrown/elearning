@@ -1,0 +1,78 @@
+<% include header %>
+
+
+<section class="content container" ng-controller="addmaterialCtrl">
+          <div class="box box-solid">
+            <div class="box-body">
+              <div class="row">
+
+                <div class="col-md-12" >
+                  <div class="box box-solid">
+
+                    <div class="box-header with-border">
+                      <h3 class="box-title">Add Material</h3>
+                      <% include menu %>
+                    </div>
+
+                     <div class="box-body">
+            <form role="form" name="materialForm" ng-submit="create('<%= course._id %>',materialForm.$valid)" required novalidate>
+
+
+              <div class="box-body">
+                <div class="form-group">
+                  <label for="exampleInputEmail1">Title</label>
+                  <input type="text" name="title" ng-model="material.title" class="form-control" id="exampleInputEmail1" placeholder="Material Title" required>
+                  <i ng-cloak class="ng-cloak formError" ng-show="materialForm.title.$invalid && !materialForm.title.$pristine" >Material title is required.</i>
+                </div>
+
+                <div class="form-group">
+                  <label for="exampleInputEmail1">Code</label>
+                  <input type="text" name="code" ng-model="material.code" class="form-control" id="exampleInputEmail1" placeholder="Material Code" required>
+                   <i ng-cloak class="ng-cloak formError" ng-show="materialForm.code.$invalid && !materialForm.code.$pristine" >Material title is required.</i>
+                </div>
+
+                <div class="form-group">
+                    <label for="name-login">Content</label>
+                    <wysiwyg-edit  ng-click="clear()" content="material.dis" config="editorConfig"></wysiwyg-edit>
+                </div>
+
+              
+                <div class="form-group">
+                        <label for="name-login">File</label>
+                        <input type="file" ngf-select ng-model="material.file" name="file" ngf-pattern="'.pdf,.docx,.doc,image/*'" accept="'.pdf,.docx,.doc,image/*'" ngf-accept="'.pdf,.docx,.doc,image/*'" ngf-max-size="5MB" ngf-model-invalid="errorFile">
+                      </div>
+                      <p class="help-block">Max size: 2MB.</p>
+                       <i ng-cloak class="ng-cloak formError" ng-show="materialForm.file.$error.pattern">File format not allowed</i>
+                      <i ng-cloak class="ng-cloak formError" ng-show="materialForm.file.$error.maxSize">File too large 
+                       {{errorFile.size / 1000000|number:1}}MB: max 5MB</i>
+                       <img ng-show="materialForm.file.$valid" ngf-thumbnail="material.file" class="thumb"> 
+                       <a href="" ng-cloak class="ng-cloak btn btn-primary" ng-click="material.file = null" ng-show="material.file">Remove</a>
+              </div>
+
+              </div>
+              <!-- /.box-body -->
+
+              <div class="box-footer">
+                <button type="submit" ng-cloak class="ng-cloak btn btn-primary">{{btn}}</button>
+              </div>
+             
+            </form>
+              </div>
+                   
+
+
+                     
+                    
+                  </div>
+                </div>
+
+               
+              </div>
+
+
+            </div>
+            <!-- /.box-body -->
+          </div>
+          <!-- /.box -->
+</section>
+<% include footer %>

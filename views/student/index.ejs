@@ -1,0 +1,48 @@
+<% include header %>
+<!-- Main jumbotron for a primary marketing message or call to action -->
+    <div class="jumbotron jumbotron-billboard ">
+    <div class="img"></div>
+      <div class="container text-center">
+        <p style="max-width: 400px; margin-left: auto;margin-right: auto;">This platform makes school activities more flexible for lecturers and student. Lecture notes and assignment can now be gotten anywhere and anytime here. </p>
+        <p><a class="btn btn-primary btn-lg" href="/student/login" role="button">Get Started &raquo;</a></p>
+      </div>
+    </div>
+
+
+    <div class="container">
+      <!-- Example row of columns -->
+      <div class="row">
+        <div class="col-md-12">
+          <h4>Latest Courses</h4>
+        </div>
+      </div>
+
+         <div class="row">
+<%for (var course in courses){%>
+         <div class="col-sm-3 ">
+          <div class="c row">
+          <a href="/student/course/<%= courses[course]._id %>">
+             <div class="col-xs-2 col-sm-12" style="padding: 0px;">
+               <div style="overflow: hidden;">
+                  <img class="" style="width: 100%;" src="/upload/<%= courses[course].cover %>">
+               </div>
+             </div>
+              <div class="col-xs-10 col-sm-12" ">
+                 <p class=""><strong><%= courses[course].title %></strong></p>
+                 <p style="padding-top: 0px;"><%= courses[course].code %></p>
+                 <p>By <%= courses[course].author.title %> <%= courses[course].author.firstname %> <%= courses[course].author.lastname %>.</p>
+              </div>
+              </a>
+          </div>
+        </div>
+<%}%>
+      
+       
+
+        
+      </div>
+      </div>
+     
+
+
+<% include footer %>
